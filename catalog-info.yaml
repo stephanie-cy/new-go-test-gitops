@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: new-go-test-gitops
+  description: This is GitOps manifest for new-go-test   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: new-go-test
+    janus-idp.io/tekton: new-go-test 
+    backstage.io/kubernetes-id: new-go-test
+    backstage.io/kubernetes-namespace: target-ns
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:new-go-test
